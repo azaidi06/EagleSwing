@@ -1,12 +1,14 @@
 ---
-title: "Welcome To My Blog"
-author: "Tristan O'Malley"
-date: "2025-06-30"
-categories: [news]
+title: "EagleSwing takes off"
+author: "AZ"
+date: "2025-07-03"
+categories: [Misc]
 ---
 
-This is the first post in a Quarto blog. Welcome!
+This will be a landing page to track work on EagleSwing
 
-![](thumbnail.jpg)
+![](eagle_swinging.jpg.png)
 
-Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
+Can we find an underlying distribution in our video data to help understand what sets a low scored swing apart from a perfect swing for a user?
+
+**Insert pictures from OneNote**
