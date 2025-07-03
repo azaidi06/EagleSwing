@@ -2,8 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/eda/00_init_eda.html",
-      "/posts/welcome/index.html"
+      "/posts/welcome/index.html",
+      "/posts/eda/00_init_eda.html"
     ]
   }
 ]
