@@ -7,16 +7,16 @@
     "text": "About this blog"
   },
   {
-    "objectID": "posts/hello/hello.html",
-    "href": "posts/hello/hello.html",
-    "title": "Quarto Basics",
+    "objectID": "posts/hello/00_init_eda.html",
+    "href": "posts/hello/00_init_eda.html",
+    "title": "Initial Exploratory Data Analysis",
     "section": "",
     "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
   },
   {
-    "objectID": "posts/hello/hello.html#polar-axis",
-    "href": "posts/hello/hello.html#polar-axis",
-    "title": "Quarto Basics",
+    "objectID": "posts/hello/00_init_eda.html#polar-axis",
+    "href": "posts/hello/00_init_eda.html#polar-axis",
+    "title": "Initial Exploratory Data Analysis",
     "section": "",
     "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
   },
@@ -28,24 +28,10 @@
     "text": "This will be a landing page to track work on EagleSwing\n\nCan we find an underlying distribution in our video data to help understand what sets a low scored swing apart from a perfect swing for a user?\nInsert pictures from OneNote"
   },
   {
-    "objectID": "posts/init_eda/01_init_eda.html",
-    "href": "posts/init_eda/01_init_eda.html",
-    "title": "Initial Exploratory Data Analysis",
-    "section": "",
-    "text": "Code\nfrom fastai.vision.all import *\n\n\n\n\nCode\nstr(get_files('data/')[2]).split('_')\n\n\n['data/img', '0849/IMG', '0849', 'swing', '11', 'score', '2.mp4']\n\n\n\n\nCode\nswing_paths = [fp for fp in get_files('data/') if 'score' in str(fp).split('_')] \nlen(swing_paths), swing_paths[:4]\n\n\n(85,\n [Path('data/img_0849/IMG_0849_swing_14_score_2.mp4'),\n  Path('data/img_0849/IMG_0849_swing_11_score_2.mp4'),\n  Path('data/img_0849/IMG_0849_swing_2_score_5.mp4'),\n  Path('data/img_0849/IMG_0849_swing_7_score_2.mp4')])\n\n\n\n\nCode\nint_paths = [str(swing_paths[x]).split('.')[0] for x in range(len(swing_paths))]\nint_paths[:3]\n\n\n['data/img_0849/IMG_0849_swing_14_score_2',\n 'data/img_0849/IMG_0849_swing_11_score_2',\n 'data/img_0849/IMG_0849_swing_2_score_5']\n\n\n\n\nCode\nscores = [int(int_paths[x].split('_')[-1]) for x in range(len(int_paths))]\nlen(scores)\n\n\n85\n\n\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.style.use('dark_background')\n\n\n\n\nCode\nplt.hist(scores, bins=10);\n\n\n\n\n\n\n\n\n\n\n\nCode\n{f'score {x}': f'{scores.count(x)} swings' for x in range(1,6)}\n\n\n{'score 1': '18 swings',\n 'score 2': '16 swings',\n 'score 3': '14 swings',\n 'score 4': '18 swings',\n 'score 5': '19 swings'}\n\n\n\n\nCode\nfrom IPython.display import HTML, Video\n\n# assume `clips` is a Python list of file-paths or URLs\nw, h = 240, 135          # thumb size (16:9).  adjust once here.\n\nvideos_html = \"\\n\".join(\n    Video(c, embed=True, width=w, height=h)._repr_html_()\n    for c in swing_paths\n)\n\n'''\nhtml = f\"\"\"\n&lt;div style='display:flex; flex-wrap:wrap; gap:1rem'&gt;\n  {videos_html}\n&lt;/div&gt;\n\"\"\"\n'''\n\nthumb_w, thumb_h = 240, 135      # pixels – keep 16:9, or pick your own\nEMBED = True       \nhtml = f\"\"\"\n&lt;div style='\n    display:grid;\n    grid-template-columns: repeat(auto-fill, minmax({thumb_w}px, 1fr));\n    gap:1rem;\n'&gt;\n  {c}\n&lt;/div&gt;\n\"\"\"\nHTML(html)\n\n\n\n\n  data/img_0849/IMG_0849_swing_14_score_2.mp4\n\n\n\n\n\nCode\nstr((Path('data')).ls()[12]).split('.')[-1]\n\n\n'MOV'\n\n\n\n\nCode\n[p for p in (Path('data')).ls() if str(p).split('.')[-1] == 'MOV']\n\n\n[Path('data/IMG_0861.MOV'),\n Path('data/IMG_0859.MOV'),\n Path('data/IMG_0856.MOV'),\n Path('data/IMG_0857.MOV'),\n Path('data/IMG_0855.MOV'),\n Path('data/IMG_0854.MOV'),\n Path('data/IMG_0853.MOV'),\n Path('data/IMG_0852.MOV')]"
-  },
-  {
-    "objectID": "posts/init_eda/01_init_eda.html#we-have-86-total-swings-currently",
-    "href": "posts/init_eda/01_init_eda.html#we-have-86-total-swings-currently",
-    "title": "Initial Exploratory Data Analysis",
-    "section": "",
-    "text": "Code\nfrom fastai.vision.all import *\n\n\n\n\nCode\nstr(get_files('data/')[2]).split('_')\n\n\n['data/img', '0849/IMG', '0849', 'swing', '11', 'score', '2.mp4']\n\n\n\n\nCode\nswing_paths = [fp for fp in get_files('data/') if 'score' in str(fp).split('_')] \nlen(swing_paths), swing_paths[:4]\n\n\n(85,\n [Path('data/img_0849/IMG_0849_swing_14_score_2.mp4'),\n  Path('data/img_0849/IMG_0849_swing_11_score_2.mp4'),\n  Path('data/img_0849/IMG_0849_swing_2_score_5.mp4'),\n  Path('data/img_0849/IMG_0849_swing_7_score_2.mp4')])\n\n\n\n\nCode\nint_paths = [str(swing_paths[x]).split('.')[0] for x in range(len(swing_paths))]\nint_paths[:3]\n\n\n['data/img_0849/IMG_0849_swing_14_score_2',\n 'data/img_0849/IMG_0849_swing_11_score_2',\n 'data/img_0849/IMG_0849_swing_2_score_5']\n\n\n\n\nCode\nscores = [int(int_paths[x].split('_')[-1]) for x in range(len(int_paths))]\nlen(scores)\n\n\n85\n\n\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.style.use('dark_background')\n\n\n\n\nCode\nplt.hist(scores, bins=10);\n\n\n\n\n\n\n\n\n\n\n\nCode\n{f'score {x}': f'{scores.count(x)} swings' for x in range(1,6)}\n\n\n{'score 1': '18 swings',\n 'score 2': '16 swings',\n 'score 3': '14 swings',\n 'score 4': '18 swings',\n 'score 5': '19 swings'}\n\n\n\n\nCode\nfrom IPython.display import HTML, Video\n\n# assume `clips` is a Python list of file-paths or URLs\nw, h = 240, 135          # thumb size (16:9).  adjust once here.\n\nvideos_html = \"\\n\".join(\n    Video(c, embed=True, width=w, height=h)._repr_html_()\n    for c in swing_paths\n)\n\n'''\nhtml = f\"\"\"\n&lt;div style='display:flex; flex-wrap:wrap; gap:1rem'&gt;\n  {videos_html}\n&lt;/div&gt;\n\"\"\"\n'''\n\nthumb_w, thumb_h = 240, 135      # pixels – keep 16:9, or pick your own\nEMBED = True       \nhtml = f\"\"\"\n&lt;div style='\n    display:grid;\n    grid-template-columns: repeat(auto-fill, minmax({thumb_w}px, 1fr));\n    gap:1rem;\n'&gt;\n  {c}\n&lt;/div&gt;\n\"\"\"\nHTML(html)\n\n\n\n\n  data/img_0849/IMG_0849_swing_14_score_2.mp4\n\n\n\n\n\nCode\nstr((Path('data')).ls()[12]).split('.')[-1]\n\n\n'MOV'\n\n\n\n\nCode\n[p for p in (Path('data')).ls() if str(p).split('.')[-1] == 'MOV']\n\n\n[Path('data/IMG_0861.MOV'),\n Path('data/IMG_0859.MOV'),\n Path('data/IMG_0856.MOV'),\n Path('data/IMG_0857.MOV'),\n Path('data/IMG_0855.MOV'),\n Path('data/IMG_0854.MOV'),\n Path('data/IMG_0853.MOV'),\n Path('data/IMG_0852.MOV')]"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "EagleSwing",
     "section": "",
-    "text": "Initial Exploratory Data Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Basics\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEagleSwing takes off\n\n\n\nMisc\n\n\n\n\n\n\n\n\n\nJul 3, 2025\n\n\nAZ\n\n\n\n\n\nNo matching items"
+    "text": "Initial Exploratory Data Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEagleSwing takes off\n\n\n\nMisc\n\n\n\n\n\n\n\n\n\nJul 3, 2025\n\n\nAZ\n\n\n\n\n\nNo matching items"
   }
 ]
