@@ -6,8 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="AZ">
-<meta name="dcterms.date" content="2025-07-03">
 
 <title>Initial Exploratory Data Analysis – EagleSwing</title>
 <style>
@@ -60,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -108,6 +106,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -328,19 +329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
   <div class="quarto-title-meta">
 
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>AZ </p>
-            </div>
-    </div>
       
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">July 3, 2025</p>
-      </div>
-    </div>
     
       
     </div>
@@ -358,40 +347,139 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="polar-axis" class="level2">
-<h2 class="anchored" data-anchor-id="polar-axis">Polar Axis</h2>
-<p>For a demonstration of a line plot on a polar axis, see <a href="#fig-polar" class="quarto-xref">Figure&nbsp;1</a>.</p>
-<div id="cell-fig-polar" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  subplot_kw <span class="op">=</span> {<span class="st">'projection'</span>: <span class="st">'polar'</span>} </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ax.plot(theta, r)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-polar" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-polar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="00_init_eda_files/figure-html/fig-polar-output-1.png" class="img-fluid figure-img">
+<section id="initial-golf-swings" class="level2">
+<h2 class="anchored" data-anchor-id="initial-golf-swings">Initial Golf Swings</h2>
+<p>Lets look through our first set of swings provided</p>
+<div id="41617b30" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>There are a total of 85 swings available from 13 full videos available</code></pre>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-polar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: A line plot on a polar axis
-</figcaption>
+</div>
+<div id="d5b1307b" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-stdout">
+<pre><code>Here's a random selection of swings</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">origin_video</th>
+<th data-quarto-table-cell-role="th">swing_index</th>
+<th data-quarto-table-cell-role="th">score</th>
+<th data-quarto-table-cell-role="th">og_vid_num</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>IMG_0849</td>
+<td>2</td>
+<td>5</td>
+<td>0849</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>IMG_0848</td>
+<td>1</td>
+<td>5</td>
+<td>0848</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>IMG_0848</td>
+<td>2</td>
+<td>5</td>
+<td>0848</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50</td>
+<td>IMG_0860</td>
+<td>2</td>
+<td>5</td>
+<td>0860</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">48</td>
+<td>IMG_0860</td>
+<td>0</td>
+<td>5</td>
+<td>0860</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="lets-see-the-distribution-of-scores-between-all-our-swings-and-make-sure-things-arent-too-badly-skewed" class="level2">
+<h2 class="anchored" data-anchor-id="lets-see-the-distribution-of-scores-between-all-our-swings-and-make-sure-things-arent-too-badly-skewed">Lets see the distribution of scores between all our swings and make sure things aren’t too badly skewed</h2>
+<div id="b2e6742a" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="00_init_eda_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
+<div id="3ec7f764" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-stdout">
+<pre><code>The raw values per score are: {'5': 19, '4': 18, '1': 18, '2': 16, '3': 14}</code></pre>
+</div>
+</div>
+<section id="looks-like-an-acceptable-distribution-of-scores-to-get-started-normally-would-want-to-see-the-3-score-as-the-most-sampled-but-this-is-ok" class="level3">
+<h3 class="anchored" data-anchor-id="looks-like-an-acceptable-distribution-of-scores-to-get-started-normally-would-want-to-see-the-3-score-as-the-most-sampled-but-this-is-ok">Looks like an acceptable distribution of scores to get started – normally would want to see the 3 score as the most sampled but this is ok</h3>
+</section>
+</section>
+<section id="was-there-a-skew-as-the-swings-progressed" class="level2">
+<h2 class="anchored" data-anchor-id="was-there-a-skew-as-the-swings-progressed">Was there a skew as the swings progressed?</h2>
+<div id="bd6e6e01" class="cell" data-console="false" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'just to check that video </span><span class="sc">{</span>swing_df<span class="sc">.</span>og_vid_num<span class="sc">.</span>value_counts()<span class="sc">.</span>sort_index()<span class="sc">.</span>index[<span class="dv">6</span>]<span class="sc">}</span><span class="ss"> is the midpoint of swings'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'There are </span><span class="sc">{</span>swing_df<span class="sc">.</span>og_vid_num<span class="sc">.</span>value_counts()<span class="sc">.</span>sort_index()[:<span class="dv">6</span>]<span class="sc">.</span>values<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss"> swings before video 0855'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'There are </span><span class="sc">{</span>swing_df<span class="sc">.</span>og_vid_num<span class="sc">.</span>value_counts()<span class="sc">.</span>sort_index()[<span class="dv">6</span>:]<span class="sc">.</span>values<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss"> swings from video 0855'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>just to check that video 0855 is the midpoint of swings
+There are 43 swings before video 0855
+There are 42 swings from video 0855</code></pre>
+</div>
+</div>
+<div id="9c42ac05" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="00_init_eda_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="01324283" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="00_init_eda_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="looks-like-as-the-session-progressed-a-skew-is-seen-in-the-distribution-of-swings-is-this-naturalexpected" class="level2">
+<h2 class="anchored" data-anchor-id="looks-like-as-the-session-progressed-a-skew-is-seen-in-the-distribution-of-swings-is-this-naturalexpected">Looks like as the session progressed a skew is seen in the distribution of swings – is this natural/expected?</h2>
+<section id="maybe-from-the-player-getting-tired-and-its-either-hit-or-miss" class="level3">
+<h3 class="anchored" data-anchor-id="maybe-from-the-player-getting-tired-and-its-either-hit-or-miss">– Maybe from the player getting tired and it’s either hit or miss</h3>
+</section>
+<section id="or-maybe-internally-they-changed-the-way-they-were-scoring-things-worth-keeping-in-mind" class="level3">
+<h3 class="anchored" data-anchor-id="or-maybe-internally-they-changed-the-way-they-were-scoring-things-worth-keeping-in-mind">– Or maybe internally they changed the way they were scoring things –&gt; worth keeping in mind</h3>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

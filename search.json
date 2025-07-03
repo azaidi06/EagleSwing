@@ -18,20 +18,41 @@
     "href": "posts/eda/00_init_eda.html",
     "title": "Initial Exploratory Data Analysis",
     "section": "",
-    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
+    "text": "Lets look through our first set of swings provided\n\n\nThere are a total of 85 swings available from 13 full videos available\n\n\n\n\nHere's a random selection of swings\n\n\n\n\n\n\n\n\n\norigin_video\nswing_index\nscore\nog_vid_num\n\n\n\n\n2\nIMG_0849\n2\n5\n0849\n\n\n17\nIMG_0848\n1\n5\n0848\n\n\n16\nIMG_0848\n2\n5\n0848\n\n\n50\nIMG_0860\n2\n5\n0860\n\n\n48\nIMG_0860\n0\n5\n0860"
   },
   {
-    "objectID": "posts/eda/00_init_eda.html#polar-axis",
-    "href": "posts/eda/00_init_eda.html#polar-axis",
+    "objectID": "posts/eda/00_init_eda.html#initial-golf-swings",
+    "href": "posts/eda/00_init_eda.html#initial-golf-swings",
     "title": "Initial Exploratory Data Analysis",
     "section": "",
-    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
+    "text": "Lets look through our first set of swings provided\n\n\nThere are a total of 85 swings available from 13 full videos available\n\n\n\n\nHere's a random selection of swings\n\n\n\n\n\n\n\n\n\norigin_video\nswing_index\nscore\nog_vid_num\n\n\n\n\n2\nIMG_0849\n2\n5\n0849\n\n\n17\nIMG_0848\n1\n5\n0848\n\n\n16\nIMG_0848\n2\n5\n0848\n\n\n50\nIMG_0860\n2\n5\n0860\n\n\n48\nIMG_0860\n0\n5\n0860"
+  },
+  {
+    "objectID": "posts/eda/00_init_eda.html#lets-see-the-distribution-of-scores-between-all-our-swings-and-make-sure-things-arent-too-badly-skewed",
+    "href": "posts/eda/00_init_eda.html#lets-see-the-distribution-of-scores-between-all-our-swings-and-make-sure-things-arent-too-badly-skewed",
+    "title": "Initial Exploratory Data Analysis",
+    "section": "Lets see the distribution of scores between all our swings and make sure things aren’t too badly skewed",
+    "text": "Lets see the distribution of scores between all our swings and make sure things aren’t too badly skewed\n\n\n\n\n\n\n\n\n\n\n\nThe raw values per score are: {'5': 19, '4': 18, '1': 18, '2': 16, '3': 14}\n\n\n\nLooks like an acceptable distribution of scores to get started – normally would want to see the 3 score as the most sampled but this is ok"
+  },
+  {
+    "objectID": "posts/eda/00_init_eda.html#was-there-a-skew-as-the-swings-progressed",
+    "href": "posts/eda/00_init_eda.html#was-there-a-skew-as-the-swings-progressed",
+    "title": "Initial Exploratory Data Analysis",
+    "section": "Was there a skew as the swings progressed?",
+    "text": "Was there a skew as the swings progressed?\n\n\nCode\nprint(f'just to check that video {swing_df.og_vid_num.value_counts().sort_index().index[6]} is the midpoint of swings')\nprint(f'There are {swing_df.og_vid_num.value_counts().sort_index()[:6].values.sum()} swings before video 0855')\nprint(f'There are {swing_df.og_vid_num.value_counts().sort_index()[6:].values.sum()} swings from video 0855')\n\n\njust to check that video 0855 is the midpoint of swings\nThere are 43 swings before video 0855\nThere are 42 swings from video 0855"
+  },
+  {
+    "objectID": "posts/eda/00_init_eda.html#looks-like-as-the-session-progressed-a-skew-is-seen-in-the-distribution-of-swings-is-this-naturalexpected",
+    "href": "posts/eda/00_init_eda.html#looks-like-as-the-session-progressed-a-skew-is-seen-in-the-distribution-of-swings-is-this-naturalexpected",
+    "title": "Initial Exploratory Data Analysis",
+    "section": "Looks like as the session progressed a skew is seen in the distribution of swings – is this natural/expected?",
+    "text": "Looks like as the session progressed a skew is seen in the distribution of swings – is this natural/expected?\n\n– Maybe from the player getting tired and it’s either hit or miss\n\n\n– Or maybe internally they changed the way they were scoring things –&gt; worth keeping in mind"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "EagleSwing",
     "section": "",
-    "text": "Initial Exploratory Data Analysis\n\n\n\nEDA\n\n\n\n\n\n\n\n\n\nJul 3, 2025\n\n\nAZ\n\n\n\n\n\n\n\n\n\n\n\n\nEagleSwing takes off\n\n\n\nMisc\n\n\n\n\n\n\n\n\n\nJul 3, 2025\n\n\nAZ\n\n\n\n\n\nNo matching items"
+    "text": "Initial Exploratory Data Analysis\n\n\n\nEDA\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEagleSwing takes off\n\n\n\nMisc\n\n\n\n\n\n\n\n\n\nJul 3, 2025\n\n\nAZ\n\n\n\n\n\nNo matching items"
   }
 ]
