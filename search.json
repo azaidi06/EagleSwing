@@ -7,11 +7,18 @@
     "text": "About this blog"
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "EagleSwing takes off",
+    "objectID": "posts/video analysis/00_video_analyze.html",
+    "href": "posts/video analysis/00_video_analyze.html",
+    "title": "Initial Swing Video Analysis",
     "section": "",
-    "text": "This will be a landing page to track work on EagleSwing\n\nCan we find an underlying distribution in our video data to help understand what sets a low scored swing apart from a perfect swing for a user?\nInsert pictures from OneNote"
+    "text": "Lets look through our swings and see how things were cropped and what might have been left out of the mix"
+  },
+  {
+    "objectID": "posts/video analysis/00_video_analyze.html#initial-video-analysis-of-swings",
+    "href": "posts/video analysis/00_video_analyze.html#initial-video-analysis-of-swings",
+    "title": "Initial Swing Video Analysis",
+    "section": "",
+    "text": "Lets look through our swings and see how things were cropped and what might have been left out of the mix"
   },
   {
     "objectID": "posts/eda/00_init_eda.html",
@@ -49,10 +56,17 @@
     "text": "Looks like as the session progressed a skew is seen in the distribution of swings – is this natural/expected?\n\n– Maybe from the player getting tired and it’s either hit or miss\n\n\n– Or maybe internally they changed the way they were scoring things –&gt; worth keeping in mind"
   },
   {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "EagleSwing takes off",
+    "section": "",
+    "text": "This will be a landing page to track work on EagleSwing\n\nCan we find an underlying distribution in our video data to help understand what sets a low scored swing apart from a perfect swing for a user?\nInsert pictures from OneNote"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "EagleSwing",
     "section": "",
-    "text": "EagleSwing takes off\n\n\n\nMisc\n\n\n\n\n\n\n\n\n\nJul 2, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Exploratory Data Analysis\n\n\n\nEDA\n\n\n\n\n\n\n\n\n\nJul 3, 2025\n\n\n\n\n\nNo matching items"
+    "text": "EagleSwing takes off\n\n\n\nMisc\n\n\n\n\n\n\n\n\n\nJul 2, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Exploratory Data Analysis\n\n\n\nEDA\n\n\n\n\n\n\n\n\n\nJul 3, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Swing Video Analysis\n\n\n\nEDA\n\n\n\n\n\n\n\n\n\nJul 3, 2025\n\n\n\n\n\nNo matching items"
   }
 ]

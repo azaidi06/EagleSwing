@@ -3,7 +3,8 @@
     "listing": "/index.html",
     "items": [
       "/posts/welcome/index.html",
-      "/posts/eda/00_init_eda.html"
+      "/posts/eda/00_init_eda.html",
+      "/posts/video analysis/00_video_analyze.html"
     ]
   }
 ]
