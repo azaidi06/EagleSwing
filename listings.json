@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/init_eda/01_init_eda.html",
       "/posts/welcome/index.html"
     ]
   }
