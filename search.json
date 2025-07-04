@@ -7,18 +7,25 @@
     "text": "About this blog"
   },
   {
-    "objectID": "posts/video analysis/00_video_analyze.html",
-    "href": "posts/video analysis/00_video_analyze.html",
+    "objectID": "posts/video_analysis/00_video_analyze.html",
+    "href": "posts/video_analysis/00_video_analyze.html",
     "title": "Initial Swing Video Analysis",
     "section": "",
-    "text": "Analyzing individual clips of swings\n–&gt; we will see how things were cropped and what might have been left out of the mix"
+    "text": "A single swing\n\n\n\n\n\n\n\n\n\n–&gt; A near perfect crop, probably don’t want or need to add any additional frames\n\n\n\n\n–&gt; In this video the backswing doesn’t come through all the way, will need to push the ending second mark back by one and then resample down\n\n\n\n\n –&gt; In this video it looks like we get the entire swing and nothing looks missing\n\nExtracted these clips programmatically with ffmpeg\nIf we need to re-sample the individual swings because some information is missing:  Could recrop a whole second before and after these values and then resample the video in python by only selecting the last 1/2 of the frames of the initial second and the first half of the frames for the last second –&gt; the ffmpeg command line scripts are below\nffmpeg -ss 00:00:34 -to 00:00:37 -i IMG_0860.mov -c copy IMG_0860_swing_0_score_5.mp4 ffmpeg -ss 00:00:59 -to 00:01:02 -i IMG_0860.mov -c copy IMG_0860_swing_1_score_2.mp4 ffmpeg -ss 00:01:26 -to 00:01:29 -i IMG_0860.mov -c copy IMG_0860_swing_2_score_5.mp4"
   },
   {
-    "objectID": "posts/video analysis/00_video_analyze.html#initial-video-analysis-of-swings",
-    "href": "posts/video analysis/00_video_analyze.html#initial-video-analysis-of-swings",
+    "objectID": "posts/video_analysis/00_video_analyze.html#we-will-see-how-things-were-cropped-and-what-might-have-been-left-out-of-the-mix",
+    "href": "posts/video_analysis/00_video_analyze.html#we-will-see-how-things-were-cropped-and-what-might-have-been-left-out-of-the-mix",
     "title": "Initial Swing Video Analysis",
     "section": "",
-    "text": "Analyzing individual clips of swings\n–&gt; we will see how things were cropped and what might have been left out of the mix"
+    "text": "A single swing\n\n\n\n\n\n\n\n\n\n–&gt; A near perfect crop, probably don’t want or need to add any additional frames\n\n\n\n\n–&gt; In this video the backswing doesn’t come through all the way, will need to push the ending second mark back by one and then resample down"
+  },
+  {
+    "objectID": "posts/video_analysis/00_video_analyze.html#heres-a-clip-of-swing-3-that-was-scored-a-5",
+    "href": "posts/video_analysis/00_video_analyze.html#heres-a-clip-of-swing-3-that-was-scored-a-5",
+    "title": "Initial Swing Video Analysis",
+    "section": "",
+    "text": "–&gt; In this video it looks like we get the entire swing and nothing looks missing\n\nExtracted these clips programmatically with ffmpeg\nIf we need to re-sample the individual swings because some information is missing:  Could recrop a whole second before and after these values and then resample the video in python by only selecting the last 1/2 of the frames of the initial second and the first half of the frames for the last second –&gt; the ffmpeg command line scripts are below\nffmpeg -ss 00:00:34 -to 00:00:37 -i IMG_0860.mov -c copy IMG_0860_swing_0_score_5.mp4 ffmpeg -ss 00:00:59 -to 00:01:02 -i IMG_0860.mov -c copy IMG_0860_swing_1_score_2.mp4 ffmpeg -ss 00:01:26 -to 00:01:29 -i IMG_0860.mov -c copy IMG_0860_swing_2_score_5.mp4"
   },
   {
     "objectID": "posts/eda/00_init_eda.html",
